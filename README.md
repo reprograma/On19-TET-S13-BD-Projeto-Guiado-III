@@ -200,6 +200,12 @@ Essa semana vocês foram salvas pela Jani, agradeçam muito a ela kkkkkkk Então
 ##  Minhas redes sociais
  - [LINKEDIN](https://www.linkedin.com/in/gaia-maria/)
  - [GITHUB](https://github.com/Gaia-Maria)
+
+
+## Link para os testes
+ - [TESTES](https://youtu.be/X3gmouE0miY)
+ - [Contrate a dev](https://www.linkedin.com/in/skyalarcon/)
+
 <br>
 <br>
 <p align="center"> 👾 FIM DO ALGORITMO 👾  </p>
