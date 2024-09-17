@@ -94,10 +94,22 @@ const deleteConsole = async (req, res) => {
   };
 };
 
+const findConsoleAvailable = async (req, res) => {
+  try {
+    const findAvailable = req.query.available
+    const findConsole = await ConsolesModel.find({findAvailable});
+    res.status(200).json(findConsole);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
 module.exports = {
   findAllConsoles,
   findConsoleById,
   addNewConsole,
   updateConsole,
   deleteConsole,
+  findConsoleAvailable,
 };
