@@ -1,11 +1,38 @@
 const GamesModel = require("../models/gamesModel");
 const ConsolesModel = require("../models/consolesModel");
 
+const findGamesByAvailable = async (req, res) => {
+  try {
+    const findGameAvailable = await GamesModel.findGamesByAvailable(req.params.available).populate(
+      "console"
+    );
+    if (findGameAvailable == null) {
+      res.status(404).json({ message: "Game not available" });
+    }
+    res.status(200).json(findGameAvailable);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
+
+const findGamesByName = async (req, res) => {
+  try {
+    const allConsoles = await ConsolesModel.find();
+    res.status(200).json(allConsoles);
+  } catch {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
 const findAllGames = async (req, res) => {
   try {
     const allGames = await GamesModel.find().populate("console");
+
     res.status(200).json(allGames);
-  } catch {
+  } catch(error) {
+    console.log(error)
     res.status(500).json({ message: error.message });
   };
 };
@@ -131,4 +158,6 @@ module.exports = {
   addNewGame,
   updateGame,
   deleteGame,
+  findGamesByName,
+  findGamesByAvailable
 };

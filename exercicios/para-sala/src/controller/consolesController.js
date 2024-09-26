@@ -1,5 +1,19 @@
 const ConsolesModel = require("../models/consolesModel");
 
+const findConsolesByAvailable = async (req, res) => {
+  try {
+    const findConsoleAvailable = await GamesModel.findConsolesByAvailable(req.params.available).populate(
+      "console"
+    );
+    if (findConsoleAvailable == null) {
+      res.status(404).json({ message: "Game not available" });
+    }
+    res.status(200).json(findConsoleAvailable);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
 const findAllConsoles = async (req, res) => {
   try {
     const allConsoles = await ConsolesModel.find();
@@ -100,4 +114,5 @@ module.exports = {
   addNewConsole,
   updateConsole,
   deleteConsole,
+  findConsolesByAvailable,
 };
